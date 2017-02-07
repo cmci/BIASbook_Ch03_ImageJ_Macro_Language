@@ -29,8 +29,12 @@
 \usepackage[]{amsmath}
 
 \usepackage[]{amssymb,amsfonts,textcomp}
-\usepackage[]{amssymb,amsfonts,textcomp}
+%\usepackage[]{amssymb,amsfonts,textcomp}
 % \usepackage[]{amssymb,amsfonts,textcomp} % Not (yet) supported by LaTeXML.
+
+\usepackage{xcolor}
+\usepackage{framed}
+\colorlet{shadecolor}{blue!10}
 
 \usepackage[]{color}
 
@@ -44,14 +48,15 @@
 \definecolor{shadecolor}{rgb}{0.9, 0.9, 1}
 % \usepackage[]{epstopdf} % Not (yet) supported by LaTeXML.
 \usepackage[]{natbib}
-
 \bibpunct{(}{)}{;}{a}{,}{,}
-\usepackage[]{hyperref}
 
+%%%
+\usepackage[]{hyperref}
 \hypersetup{colorlinks=true, 
 	citecolor=blue, 
 	linkcolor=black, 
 	urlcolor=black}
+%%%
 % \usepackage[]{pdfpages} % Not (yet) supported by LaTeXML.
 \usepackage[]{supertabular}
 
@@ -76,15 +81,36 @@
 \lfoot{}
 \cfoot{\fancyplain{}{\thepage}}
 \rfoot{}
+
+%%%%%%%%%% custom environments 
+\newcommand{\ijmenu}[1][]{\texttt{\small#1}}
+\newcommand{\ilcom}[1][]{\texttt{\small#1}}
+\newcommand{\tab}[][]{\hspace*{3em}}
+\newcommand{\HRule}[][]{\rule{\linewidth}{0.5mm}}
+
+%%%% sharelatex
+%\newenvironment{indentexercise}[1]
+%{{\setlength{\leftmargin}{2em}}
+%\textbf{Exercise \thesubsection-#1}
+%\begin{list}
+%{}
+%	\item
+%}
+%{\end{list}
+%}
+%%%% authorea
 \newenvironment{indentexercise}[1]
-{{\setlength{\leftmargin}{2em}}
-\textbf{Exercise \thesubsection-#1}
-\begin{list}
-{}
-	\item
+{
+\begin{shaded}
+\textbf{EXERCISE #1}\\
+\HRule \\
+\end{shaded}
 }
-{\end{list}
+{\\
+\HRule \\
 }
+%%%%
+
 \newenvironment{indentFiji}
 {\begin{list}{}
          {\setlength{\leftmargin}{1em}}
@@ -97,10 +123,7 @@
          \item[]
 }
 {\end{list}}
-\newcommand{\ijmenu}[1][]{\texttt{\small#1}}
-\newcommand{\ilcom}[1][]{\texttt{\small#1}}
-\newcommand{\tab}[][]{\hspace*{3em}}
-\newcommand{\HRule}[][]{\rule{\linewidth}{0.5mm}}
+
 % \usepackage[]{textcomp} % Not (yet) supported by LaTeXML.
 
 \newcommand*{\micro}[][]{\textmu}
